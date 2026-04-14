@@ -1,44 +1,54 @@
 <div id="about" class="section-divider">
-<div class="about-container">
-    
+  <div class="about-container">
     <div class="journey">
-        <section class="about-me">
-        <h2>About Me</h2>
+      <section class="about-me">
+        <h2>About <span>Me</span></h2>
         <h4>My Journey</h4>
-        <p>My journey in technology began at the Federal Institute of Rio Grande do Norte (IFRN), where I worked as a
-            teacher assistant in Object-Oriented Programming (OOP). In this role, I supported my classmates by helping
-            them debug their code and guiding them through complex concepts whenever they had questions. This experience
-            strengthened both my technical foundation and my ability to communicate ideas clearly.
+        <p>
+          My journey in technology began at the Federal Institute of Rio Grande do Norte (IFRN), where I worked as a
+          teacher assistant in Object-Oriented Programming (OOP). In this role, I supported my classmates by helping
+          them debug their code and guiding them through complex concepts whenever they had questions. This experience
+          strengthened both my technical foundation and my ability to communicate ideas clearly.
         </p>
+        <p> 
+          After that, I joined Dore Refrigerantes as a junior apprentice. During this period, I developed internal
+          applications tailored to the needs of employees, helping to improve workflows and efficiency. I was also
+          responsible for maintaining the company’s website, ensuring it remained functional and up to date.
+        </p>
+        <p> 
+          Currently, I work as a Full Stack Developer at Provider Global. I contribute to the development of a
+          platform designed to assist institutions in managing purchase requests, with a focus on preventing fraud.
+          The system includes advanced features such as AI-powered assistants and other tools aimed at improving
+          accuracy and decision-making.
+        </p>
+        <p> 
+          Throughout my journey, I have been driven by curiosity, problem-solving, and a constant desire to learn and
+          build meaningful solutions.
+        </p>
+      </section>
 
-        <p> After that, I joined Dore Refrigerantes as a junior apprentice. During this period, I developed internal
-            applications tailored to the needs of employees, helping to improve workflows and efficiency. I was also
-            responsible for maintaining the company’s website, ensuring it remained functional and up to date.
-        </p>
-        <p> Currently, I work as a Full Stack Developer at Provider Global. I contribute to the development of a
-            platform designed to assist institutions in managing purchase requests, with a focus on preventing fraud.
-            The system includes advanced features such as AI-powered assistants and other tools aimed at improving
-            accuracy and decision-making.
-        </p>
-        <p> Throughout my journey, I have been driven by curiosity, problem-solving, and a constant desire to learn and
-            build meaningful solutions.
-        </p>
-        </section>
-
-        <section class="work-grid-section">
-            <h3>How I Work</h3>
-            <div class="work-grid">
-                @for (item of texts; track item.title) {
-                <div class="work-card">
-                    <div class="icon-box">
-                        <span class="icon">{{ item.icon }}</span>
-                    </div>
-                    <h5>{{ item.title }}</h5>
-                    <p>{{ item.content }}</p>
-                </div>
-                }
+      <section class="work-grid-section">
+        <h3>How I Work</h3>
+        <div class="work-grid">
+          @for (item of texts; track item.title) {
+          <div class="work-card">
+            <div class="icon-box">
+              @if (item.title === 'Real-World Solutions') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"></path></svg>
+              } @else if (item.title === 'Full Stack Development') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              } @else if (item.title === 'Continuous Learning') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              } @else if (item.title === 'AI Integration') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8M12 14v8M4.93 4.93l5.66 5.66M13.41 13.41l5.66 5.66M2 12h8M14 12h8M4.93 19.07l5.66-5.66M13.41 10.59l5.66-5.66"></path></svg>
+              }
             </div>
-        </section>
+            <h5>{{ item.title }}</h5>
+            <p>{{ item.content }}</p>
+          </div>
+          }
+        </div>
+      </section>
     </div>
-</div>
+  </div>
 </div>

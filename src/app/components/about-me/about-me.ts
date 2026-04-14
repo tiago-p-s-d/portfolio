@@ -13,22 +13,22 @@ export class AboutMe {
     {
       title: "Real-World Solutions",
       content: "Building internal applications at Dore Refrigerantes focused on solving real business needs and improving daily workflows.",
-      icon: "</>",
+
     },
     {
       title: "Full Stack Development",
       content: "Currently developing anti-fraud platforms at Provider Global with AI integration and scalable architecture.",
-      icon: "💡",
+
     },
     {
       title: "Continuous Learning",
       content: "Always seeking to improve skills, explore new technologies, and deliver better solutions through constant learning.",
-      icon: "👥",
+
     },
     {
       title: "AI Integration",
       content: "Working with modern technologies such as AI-powered assistants to enhance decision-making and automate processes.",
-      icon: "⚡",
+
     }
   ];
 }
