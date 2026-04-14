@@ -1,0 +1,10 @@
+<div class="bg-lights">
+  <div
+    *ngFor="let light of lights"
+    class="light"
+    [style.left.%]="light.x"
+    [style.top.%]="light.y"
+    [style.width.px]="light.size"
+    [style.height.px]="light.size"
+  ></div>
+</div>

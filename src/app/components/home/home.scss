@@ -1,0 +1,157 @@
+// Recomenda-se mover estas variáveis para um arquivo _variables.scss e usar @import ou @use
+$primary-purple: #a224b3;
+$transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$profile-size-desktop: 380px;
+$icon-size: 50px;
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 4rem;
+
+  // Layout Desktop (Lado a lado)
+  @media (min-width: 992px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  // Bloco de Texto
+  .fc-w {
+    flex: 1;
+    z-index: 1;
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 0.5rem;
+      color: white;
+
+      .cursor { 
+        color: $primary-purple; 
+        animation: blink 1s infinite; 
+      }
+    }
+
+    h3 {
+      color: $primary-purple;
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h5 {
+      line-height: 1.6;
+      opacity: 0.85;
+      margin: 0;
+      max-width: 500px;
+      color: #e2e8f0;
+    }
+  }
+
+  // Container da Foto
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .profile-img {
+      width: clamp(280px, 40vw, $profile-size-desktop);
+      height: clamp(280px, 40vw, $profile-size-desktop);
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid $primary-purple;
+      box-shadow: 0 0 30px rgba($primary-purple, 0.3);
+      transition: $transition-smooth;
+
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 45px rgba($primary-purple, 0.5);
+      }
+    }
+  }
+
+  // Seção de Sociais (Ajustada para fluxo natural abaixo do texto/foto)
+  .socials {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 0; // Removido o margin negativo problemático
+
+    button {
+      padding: 0.8rem 2.5rem;
+      border-radius: 50px;
+      border: 2px solid $primary-purple;
+      background: transparent;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: $transition-smooth;
+
+      &:hover {
+        background: $primary-purple;
+        box-shadow: 0 5px 15px rgba($primary-purple, 0.4);
+        transform: translateY(-3px);
+      }
+    }
+
+    .icons-wrapper {
+      display: flex;
+      gap: 1.5rem;
+
+      img {
+        width: $icon-size;
+        height: $icon-size;
+        cursor: pointer;
+        transition: $transition-smooth;
+        opacity: 0.7;
+
+        &:hover {
+          transform: translateY(-5px);
+          opacity: 1;
+          filter: drop-shadow(0 0 8px $primary-purple);
+        }
+      }
+    }
+  }
+}
+
+// Mobile Adjustments
+@media (max-width: 768px) {
+  .home-container {
+    text-align: center;
+    gap: 2rem;
+    padding-top: 5rem;
+
+    .fc-w {
+      order: 2; // Texto vai para baixo da foto no mobile
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-container {
+      order: 1;
+    }
+
+    .socials {
+      order: 3;
+    }
+  }
+}
+
+@keyframes blink { 
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; } 
+}

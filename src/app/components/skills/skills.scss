@@ -1,0 +1,125 @@
+$primary-purple: #a224b3;
+$text-muted: #94a3b8;
+$bg-card-glass: rgba(30, 41, 59, 0.4);
+
+.skills-section {
+    max-width: 1200px;
+    min-height: 100vh;
+    padding: 6rem 2rem;
+    margin: 0 auto;
+
+    h3 {
+        font-size: 2.2rem;
+        color: white;
+        margin-bottom: 4rem;
+        text-align: center;
+        span { color: $primary-purple; }
+    }
+
+    .skills-grid {
+        // Trocamos Grid por Flex para permitir centralização da última linha
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; // Centraliza os cards da última linha
+        gap: 2rem;
+    }
+
+    .skill-card {
+        background: $bg-card-glass;
+        backdrop-filter: blur(10px);
+        padding: 2.5rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        
+        // Define a largura base do card para simular o grid anterior
+        flex: 1 1 320px; 
+        max-width: 380px; // Garante que não fiquem largos demais quando centralizados
+
+        &:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba($primary-purple, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+
+            .icon-box {
+                width: 45px;
+                height: 45px;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba($primary-purple, 0.1);
+                color: $primary-purple;
+                font-size: 1.3rem;
+            }
+
+            h5 {
+                color: white;
+                font-size: 1.25rem;
+                margin: 0;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+
+            li {
+                .item-main {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between; // Joga o badge para o canto
+                    gap: 0.75rem;
+
+                    .name {
+                        color: #e2e8f0;
+                        font-weight: 500;
+                        font-size: 1rem;
+                    }
+
+                    .badge {
+                        font-size: 0.7rem;
+                        padding: 2px 10px;
+                        border-radius: 20px;
+                        background: rgba($primary-purple, 0.1);
+                        color: $primary-purple;
+                        border: 1px solid rgba($primary-purple, 0.2);
+                        font-weight: 600;
+                        white-space: nowrap;
+                    }
+                }
+
+                p {
+                    margin: 0.4rem 0 0 0;
+                    font-size: 0.85rem;
+                    color: $text-muted;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+}
+
+// Ajuste para telas muito pequenas
+@media (max-width: 480px) {
+    .skill-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}

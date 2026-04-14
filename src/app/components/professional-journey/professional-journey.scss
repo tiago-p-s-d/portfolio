@@ -1,0 +1,175 @@
+$primary-purple: #a224b3;
+$bg-card: rgba(30, 41, 59, 0.7);
+$line-color: rgba($primary-purple, 0.4);
+$transition-smooth: all 0.3s ease;
+
+.timeline-container {
+  padding: 6rem 1.5rem;
+  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .timeline-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      span { color: $primary-purple; }
+    }
+    p { color: #94a3b8; margin-top: 1rem; }
+  }
+
+  .timeline-main {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    // Linha vertical dinâmica
+    &::before {
+      content: '';
+      position: absolute;
+      left: 20px; // Alinhada à esquerda no mobile por padrão
+      width: 2px;
+      height: 100%;
+      background: $line-color;
+      transform: none;
+
+      @media (min-width: 768px) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .timeline-item {
+    width: 100%;
+    position: relative;
+    margin-bottom: 4rem;
+    display: flex;
+    padding-left: 50px; // Espaço para a linha no mobile
+
+    @media (min-width: 768px) {
+      width: 50%;
+      padding-left: 0;
+    }
+
+    // O ponto na linha
+    .dot {
+      position: absolute;
+      left: 15px; // Alinhado com a linha de 20px (centralizado no traço)
+      top: 24px;
+      width: 12px;
+      height: 12px;
+      background: $primary-purple;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba($primary-purple, 0.6);
+      z-index: 2;
+
+      @media (min-width: 768px) {
+        left: auto;
+        right: -6px;
+      }
+    }
+
+    // Alinhamento Desktop
+    &.left {
+      @media (min-width: 768px) {
+        justify-content: flex-end;
+        padding-right: 45px;
+        align-self: flex-start;
+      }
+    }
+
+    &.right {
+      @media (min-width: 768px) {
+        align-self: flex-end;
+        padding-left: 45px;
+        margin-left: 50%;
+        
+        .dot { 
+          left: -6px; 
+          right: auto; 
+        }
+      }
+    }
+
+    .timeline-card {
+      background: $bg-card;
+      backdrop-filter: blur(10px);
+      padding: 1.8rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      width: 100%;
+      transition: $transition-smooth;
+
+      &:hover {
+        transform: translateY(-5px);
+        border-color: rgba($primary-purple, 0.4);
+        background: rgba(30, 41, 59, 0.8);
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        margin-bottom: 1rem;
+
+        .logo-placeholder {
+          width: 45px;
+          height: 45px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          flex-shrink: 0;
+          
+          &.purple { background: rgba($primary-purple, 0.2); color: $primary-purple; }
+          &.blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+          &.green { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+        }
+
+        h5 { margin: 0; font-size: 1.1rem; color: white; }
+        .company { color: $primary-purple; font-size: 0.9rem; font-weight: 500; }
+      }
+
+      .date {
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .achievements {
+        h6 { color: $primary-purple; margin: 1rem 0 0.5rem; font-size: 0.9rem; }
+        ul { 
+          padding-left: 1rem;
+          margin: 0;
+          li { font-size: 0.85rem; color: #cbd5e1; margin-bottom: 0.6rem; line-height: 1.5; }
+        }
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+        
+        span {
+          background: rgba(255, 255, 255, 0.05);
+          color: #e2e8f0;
+          padding: 3px 10px;
+          border-radius: 6px;
+          font-size: 0.7rem;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: 0.3s;
+
+          &:hover {
+            border-color: $primary-purple;
+            color: $primary-purple;
+          }
+        }
+      }
+    }
+  }
+}

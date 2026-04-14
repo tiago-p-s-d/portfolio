@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+// app.scss + styles.scss
+$bg-dark: #0b0f1a; // Um tom levemente acima do preto puro para melhor contraste
+$primary-purple: #a224b3;
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $bg-dark;
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif; // Sugestão de fonte moderna
+  overflow-x: hidden; // Previne scroll horizontal acidental
+}
+
+// Utilitários Otimizados
+.fc-w { color: #ffffff; }
+.fc-p { color: $primary-purple; }
+
+.container-standard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+@keyframes blink { 
+  50% { opacity: 0; } 
+}

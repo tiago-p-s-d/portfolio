@@ -1,0 +1,47 @@
+.bg-lights {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.light {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(45px); 
+
+  background: radial-gradient(
+    circle, 
+    rgba(123, 47, 255, 0.8) 0%,   // Núcleo forte
+    rgba(123, 47, 255, 0.3) 45%,  // Difusão média
+    transparent 80%               // Sumiço suave
+  );
+  
+  animation: pulse 6s ease-in-out forwards; 
+  transform: translate(-50%, -50%);
+  
+  box-shadow: 0 0 20px rgba(123, 47, 255, 0.2);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  20% {
+    opacity: 0.9; 
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  80% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}

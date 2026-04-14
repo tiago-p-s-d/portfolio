@@ -1,0 +1,44 @@
+<div id="about" class="section-divider">
+<div class="about-container">
+    
+    <div class="journey">
+        <section class="about-me">
+        <h2>About Me</h2>
+        <h4>My Journey</h4>
+        <p>My journey in technology began at the Federal Institute of Rio Grande do Norte (IFRN), where I worked as a
+            teacher assistant in Object-Oriented Programming (OOP). In this role, I supported my classmates by helping
+            them debug their code and guiding them through complex concepts whenever they had questions. This experience
+            strengthened both my technical foundation and my ability to communicate ideas clearly.
+        </p>
+
+        <p> After that, I joined Dore Refrigerantes as a junior apprentice. During this period, I developed internal
+            applications tailored to the needs of employees, helping to improve workflows and efficiency. I was also
+            responsible for maintaining the company’s website, ensuring it remained functional and up to date.
+        </p>
+        <p> Currently, I work as a Full Stack Developer at Provider Global. I contribute to the development of a
+            platform designed to assist institutions in managing purchase requests, with a focus on preventing fraud.
+            The system includes advanced features such as AI-powered assistants and other tools aimed at improving
+            accuracy and decision-making.
+        </p>
+        <p> Throughout my journey, I have been driven by curiosity, problem-solving, and a constant desire to learn and
+            build meaningful solutions.
+        </p>
+        </section>
+
+        <section class="work-grid-section">
+            <h3>How I Work</h3>
+            <div class="work-grid">
+                @for (item of texts; track item.title) {
+                <div class="work-card">
+                    <div class="icon-box">
+                        <span class="icon">{{ item.icon }}</span>
+                    </div>
+                    <h5>{{ item.title }}</h5>
+                    <p>{{ item.content }}</p>
+                </div>
+                }
+            </div>
+        </section>
+    </div>
+</div>
+</div>

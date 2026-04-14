@@ -1,0 +1,29 @@
+<section id="skills" class="skills-section">
+  <h3>Technical <span>Expertise</span></h3>
+
+  <div class="skills-grid">
+    @for (skill of skills; track skill.title) {
+      <div class="skill-card">
+        <div class="card-title-wrapper">
+          <div class="icon-box">
+            <span class="icon">{{ skill.icon }}</span>
+          </div>
+          <h5>{{ skill.title }}</h5>
+        </div>
+
+        <ul>
+          @for (item of skill.items; track item.name) {
+            <li>
+              <div class="item-main">
+                
+                <span class="name">{{ item.name }}</span>
+                <span class="badge">{{ item.time }}</span>
+              </div>
+              <p>{{ item.desc }}</p>
+            </li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</section>
