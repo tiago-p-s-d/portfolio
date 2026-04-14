@@ -1,3 +1,7 @@
+// Variável da cor Rust para as luzes
+$light-rust: rgba(230, 126, 34, 0.6); 
+$light-rust-core: rgba(211, 84, 0, 0.9);
+
 .bg-lights {
   position: fixed;
   top: 0;
@@ -12,36 +16,36 @@
 .light {
   position: absolute;
   border-radius: 50%;
-  filter: blur(45px); 
+  filter: blur(60px); 
 
   background: radial-gradient(
     circle, 
-    rgba(123, 47, 255, 0.8) 0%,   // Núcleo forte
-    rgba(123, 47, 255, 0.3) 45%,  // Difusão média
-    transparent 80%               // Sumiço suave
+    $light-rust-core 0%,   // Núcleo quente (Rust escuro)
+    $light-rust 35%,       // Difusão principal (Rust vibrante)
+    transparent 75%        // Sumiço suave
   );
   
-  animation: pulse 6s ease-in-out forwards; 
+  animation: pulse 8s ease-in-out forwards; 
   transform: translate(-50%, -50%);
   
-  box-shadow: 0 0 20px rgba(123, 47, 255, 0.2);
+  box-shadow: 0 0 40px rgba(230, 126, 34, 0.1);
 }
 
 @keyframes pulse {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.3);
+    transform: translate(-50%, -50%) scale(0.5);
   }
-  20% {
-    opacity: 0.9; 
+  30% {
+    opacity: 0.6; 
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  70% {
+    opacity: 0.4;
     transform: translate(-50%, -50%) scale(1.1);
-  }
-  80% {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(1);
   }
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
+    transform: translate(-50%, -50%) scale(0.8);
   }
 }
