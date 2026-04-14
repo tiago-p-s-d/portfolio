@@ -18,7 +18,6 @@ export class Projects {
       "Race Forge engine for lineage management"
     ],
     technologies: ["Angular 20", "Node 25", "TypeScript", "MySQL", "Knex"],
-    github: "https://github.com/seu-usuario/d-infinity"
   },
   {
     title: "Cesta PAC Server",
@@ -30,7 +29,6 @@ export class Projects {
       "Automated migration handling"
     ],
     technologies: ["Node.js", "GitLab", "MySQL", "Relational DB"],
-    github: "https://gitlab.com/edmonteiro/cesta-pac-server"
   }
 ];
 }
