@@ -1,20 +1,26 @@
-$primary-purple: #a224b3;
+$primary-rust: #e67e22; 
+$transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; 
   align-items: center;
-  padding: 1rem 5%;
+  padding: 1.5rem 5%;
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(11, 15, 26, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(11, 15, 26, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 
   .tbar {
     font-size: 1.8rem;
     cursor: pointer;
     color: white;
+    transition: $transition-standard;
+    
+    &:hover { color: $primary-rust; }
     @media (min-width: 769px) { display: none; }
   }
 }
@@ -28,8 +34,31 @@ header {
   h4 {
     cursor: pointer;
     font-weight: 500;
-    transition: color 0.3s ease;
-    &:hover { color: $primary-purple; }
+    font-size: 0.95rem;
+    color: #e2e8f0;
+    transition: $transition-standard;
+    position: relative;
+
+    // Efeito de hover com o laranja rust
+    &:hover { 
+      color: $primary-rust; 
+    }
+
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $primary-rust;
+      transition: $transition-standard;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
   }
 
   &.open {
@@ -39,16 +68,22 @@ header {
     top: 100%;
     left: 0;
     width: 100%;
-    background: #161e2c;
+    background: #0f172a; 
     padding: 2rem;
     gap: 1.5rem;
-    border-bottom: 1px solid rgba($primary-purple, 0.2);
+    border-bottom: 2px solid $primary-rust; 
+    animation: slideDown 0.3s ease-out;
   }
 
   @media (min-width: 768px) {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
+    gap: 3rem;
     align-items: center;
   }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
